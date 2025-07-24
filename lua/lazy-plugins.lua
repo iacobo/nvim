@@ -51,6 +51,8 @@ require('lazy').setup({
 
   require 'kickstart.plugins.themes.oxocarbon',
 
+  require 'kickstart.plugins.themes.paramount',
+
   require 'kickstart.plugins.themes.poimandres',
   
   require 'kickstart.plugins.themes.tokyonight',
