@@ -57,6 +57,8 @@ require('lazy').setup({
 
   require 'kickstart.plugins.themes.poimandres',
   
+  require 'kickstart.plugins.themes.techbase',
+  
   require 'kickstart.plugins.themes.tokyonight',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
