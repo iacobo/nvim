@@ -25,6 +25,5 @@ return {
     setup_theme('oxocarbon', 'nyoom-engineering/oxocarbon.nvim', 'oxocarbon', false), -- No setup required
     setup_theme('paramount', 'owickstrom/vim-colors-paramount', 'paramount', false),  -- No setup required
     setup_theme('poimandres', 'olivercederborg/poimandres.nvim', 'poimandres', true),
-    setup_theme('techbase', 'mcauley-penney/techbase.nvim', 'techbase', false),       -- No setup required
     setup_theme('tokyonight', 'folke/tokyonight.nvim', 'tokyonight-night', true),
 }

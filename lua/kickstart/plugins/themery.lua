@@ -9,7 +9,7 @@ return {
                 -- Purpz blue green
                 'carbonfox', 'oxocarbon', 'modus', 'paramount', --'edge', 'dogrun', 'oxocarbon-lua', 'eidolon', 'mirodark',
                 -- Blues
-                'poimandres', 'techbase',                       --'iceberg', 'nord' 'hatsunemiku', 'archery', 'hydrangea',
+                'poimandres',                                   --'iceberg', 'nord' 'hatsunemiku', 'archery', 'hydrangea',
                 -- Purples
                 --'lavender-contrast', 'rose-pine', 'photon',
                 -- monochrome
