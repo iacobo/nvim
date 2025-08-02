@@ -10,6 +10,7 @@ local function setup_theme(theme_name, repo, colorscheme_name, requires_setup)
                     styles = {
                         comments = { italic = false },
                     },
+                    transparent = true,
                 }
             end
             vim.opt.background = 'dark'
