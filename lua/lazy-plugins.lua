@@ -34,16 +34,21 @@ require('lazy').setup({
   require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.lspconfig',
   require 'kickstart.plugins.conform',
-  require 'kickstart.plugins.barbar',
   require 'kickstart.plugins.blink-cmp',
   require 'kickstart.plugins.todo-comments',
-  require 'kickstart.plugins.lualine',
-  require 'kickstart.plugins.markview',
   require 'kickstart.plugins.mini',
   require 'kickstart.plugins.treesitter',
-  require 'kickstart.plugins.themery',
-  require 'kickstart.plugins.themes',
-  require 'kickstart.plugins.typr',
+
+  require 'custom.plugins.misc.barbar',
+  require 'custom.plugins.misc.lualine',
+  require 'custom.plugins.misc.markview',
+  require 'custom.plugins.misc.themery',
+  require 'custom.plugins.misc.themes',
+  require 'custom.plugins.misc.typr',
+
+  require 'custom.plugins.python.iron',
+  require 'custom.plugins.python.neogen',
+  require 'custom.plugins.python.nvim-puppeteer',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
