@@ -7,6 +7,7 @@ return {
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
       }
+      -- Disable markdownlint warnings
       local markdownlint = require('lint').linters.markdownlint
       markdownlint.args = {
         '--disable',
