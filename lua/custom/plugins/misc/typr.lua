@@ -1,3 +1,4 @@
+-- Typing test
 return {
   'nvzone/typr',
   dependencies = 'nvzone/volt',
