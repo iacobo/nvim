@@ -5,11 +5,9 @@ return {
     require('themery').setup {
       themes = {
         'tokyonight-night',
-        'moonfly',
+        --'tokyo-night-dark',
+        'nekonight-fire-obsidian',
         'carbonfox',
-        'oxocarbon',
-        'modus',
-        'paramount',
       },
       livePreview = true, -- Apply theme while picking. Default to true.
     }

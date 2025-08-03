@@ -20,10 +20,8 @@ local function setup_theme(theme_name, repo, colorscheme_name, requires_setup)
 end
 
 return {
-  setup_theme('modus-themes', 'miikanissi/modus-themes.nvim', 'modus', true),
-  setup_theme('moonfly', 'bluz71/vim-moonfly-colors', 'moonfly', false), -- No setup required
-  setup_theme('nightfox', 'EdenEast/nightfox.nvim', 'carbonfox', true),
-  setup_theme('oxocarbon', 'nyoom-engineering/oxocarbon.nvim', 'oxocarbon', false), -- No setup required
-  setup_theme('paramount', 'owickstrom/vim-colors-paramount', 'paramount', false), -- No setup required
+  setup_theme('nightfox', 'EdenEast/nightfox.nvim', 'carbonfox', false),
   setup_theme('tokyonight', 'folke/tokyonight.nvim', 'tokyonight-night', true),
+  --setup_theme('base16-nvim', 'wincent/base16-nvim', 'tokyo-night-dark', false),
+  setup_theme('nekonight', 'neko-night/nvim', 'nekonight-fire-obsidian', false),
 }
