@@ -1,7 +1,0 @@
--- Typing test
-return {
-  'nvzone/typr',
-  dependencies = 'nvzone/volt',
-  opts = {},
-  cmd = { 'Typr', 'TyprStats' },
-}
