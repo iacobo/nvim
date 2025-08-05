@@ -3,8 +3,9 @@
 -- * `+` serves as the "send to REPL" operator. That means we can use `++`
 -- to send the current line to the REPL, and `+j` to send the current and the
 -- following line to the REPL, like we would do with other vim operators.
-return {
-  'Vigemus/iron.nvim',
+vim.pack.add { 'https://github.com/Vigemus/iron.nvim' }
+
+require('iron').setup {
   keys = {
     { '<leader>i', vim.cmd.IronRepl, desc = '󱠤 Toggle REPL' },
     { '<leader>I', vim.cmd.IronRestart, desc = '󱠤 Restart REPL' },
@@ -37,3 +38,5 @@ return {
     },
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et
