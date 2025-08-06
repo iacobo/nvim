@@ -4,9 +4,6 @@
 vim.opt.background = 'dark'
 vim.cmd.colorscheme 'tokyonight-night'
 
--- Snacks Finder
---require('snacks').setup()
-
 -- Lualine
 require('lualine').setup {
   sections = {
