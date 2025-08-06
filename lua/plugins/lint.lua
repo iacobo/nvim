@@ -15,17 +15,14 @@ require('mason-tool-installer').setup {
   },
 }
 
--- Linting setup
 local lint = require 'lint'
 
--- Define linters for different file types
 lint.linters_by_ft = {
   markdown = { 'markdownlint' },
   python = { 'ruff' },
   lua = { 'stylua' },
 }
 
--- Create autocommand for linting
 local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
   group = lint_augroup,
