@@ -1,20 +1,36 @@
--- [[ Configure and install plugins ]]
-require 'plugins.theme' -- Load theme first
+-- [[ Install plugins ]]
 
 vim.pack.add {
   -- Dependencies
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/MunifTanjim/nui.nvim',
   'https://github.com/nvim-tree/nvim-web-devicons',
-  'https://github.com/nvzone/volt', -- Dep for Typr
+  'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/nvzone/volt', -- (for Typr)
 
   -- UI
-  'https://github.com/romgrk/barbar.nvim', --animation = false
-  'https://github.com/folke/todo-comments.nvim', -- Pretty TODO FIX WARN etc comments
-  'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/folke/tokyonight.nvim',
+  'https://github.com/romgrk/barbar.nvim', -- Tabs
+  'https://github.com/nvim-lualine/lualine.nvim',
 
-  -- Helper funcs: typing
+  -- Finder, dir tree, grep etc
+  'https://github.com/folke/snacks.nvim',
   'https://github.com/folke/which-key.nvim', -- Shortcut glossary popup
+
+  -- Rendering
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/folke/todo-comments.nvim', -- Pretty TODO FIX WARN etc comments
+
+  -- Linting etc
+  'https://github.com/stevearc/conform.nvim',
+  'https://github.com/mfussenegger/nvim-lint',
+
+  -- Tool installers (must install after lint, in this order)
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/WhoIsSethDaniel/mason-tool-installer',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+
+  -- Typing aids
   'https://github.com/saghen/blink.cmp', -- Autocomplete
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/chrisgrieser/nvim-puppeteer', -- Auto f-strings when typing {}
@@ -25,12 +41,8 @@ vim.pack.add {
   'https://github.com/nvzone/typr', -- Typing test
 }
 
-require 'plugins.conform' -- Autoformat on save
-require 'plugins.snacks'
---require 'plugins.debug'
-require 'plugins.lint' -- Autolint on save
-require 'plugins.lsp' -- LSP config python, lua
-require 'plugins.lualine' -- Statusline
-require 'plugins.treesitter' -- Code parse trees for highlights and everything else
+-- Setups
+require 'plugins.setup'
+require 'plugins.lsp'
 
 -- vim: ts=2 sts=2 sw=2 et
