@@ -4,26 +4,26 @@
 vim.opt.background = 'dark'
 vim.cmd.colorscheme 'tokyonight-night'
 
+-- Snacks Finder
+require('snacks').setup()
+
+-- Barbar
+require('barbar').setup { opts = { animation = false } }
+
 -- Lualine
 require('lualine').setup {
-  sections = {
-    lualine_x = { 'encoding', { 'fileformat', symbols = { unix = '' } }, 'filetype' },
-  }, --e8cc
+  sections = { lualine_x = { 'encoding', { 'fileformat', symbols = { unix = '' } }, 'filetype' } }, --e8cc
   options = {
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
   },
 }
 
--- Barbar
-require('barbar').setup { opts = { animation = false } }
-
 -- Treesitter
 require('nvim-treesitter').setup {
   build = ':TSUpdate',
-  main = 'nvim-treesitter.configs',
   opts = {
-    ensure_installed = { 'diff', 'html', 'lua', 'markdown', 'markdown_inline', 'python', 'toml', 'yaml' },
+    ensure_installed = { 'diff', 'html', 'latex', 'lua', 'markdown', 'markdown_inline', 'python', 'toml', 'typst', 'yaml' },
     auto_install = true,
     highlight = { enable = true },
     indent = { enable = true },

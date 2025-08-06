@@ -4,26 +4,7 @@
 
 -- Ensure you have the required language servers installed
 require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = {
-    'pyright',
-    'lua_ls',
-  },
-}
-
--- LSP configuration for Python
-vim.lsp.config('pyright', {
-  cmd = { 'pyright-langserver', '--stdio' },
-  filetypes = { 'python' },
-  root_markers = { 'pyproject.toml', 'setup.py', 'requirements.txt' },
-})
-
--- LSP configuration for Lua
-vim.lsp.config('lua_ls', {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = { '.luarc.json', '.luarc.jsonc' },
-})
+require('mason-lspconfig').setup { ensure_installed = { 'pyright', 'lua_ls' } }
 
 -- Enable the LSP servers
 vim.lsp.enable 'pyright'
@@ -33,14 +14,7 @@ vim.lsp.enable 'lua_ls'
 -- [[Linter]]
 -----------------
 
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    'markdownlint',
-    'ruff',
-    'stylua',
-    'uv',
-  },
-}
+require('mason-tool-installer').setup { ensure_installed = { 'markdownlint', 'ruff', 'stylua', 'uv' } }
 
 local lint = require 'lint'
 

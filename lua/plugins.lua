@@ -10,16 +10,17 @@ vim.pack.add {
 
   -- UI
   'https://github.com/folke/tokyonight.nvim',
-  'https://github.com/romgrk/barbar.nvim', -- Tabs
+  'https://github.com/romgrk/barbar.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
 
   -- Finder, dir tree, grep etc
   'https://github.com/folke/snacks.nvim',
-  'https://github.com/folke/which-key.nvim', -- Shortcut glossary popup
+  'https://github.com/folke/which-key.nvim',
 
   -- Rendering
+  'https://github.com/OXY2DEV/markview.nvim', -- Must be loaded before treesitter
   'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/folke/todo-comments.nvim', -- Pretty TODO FIX WARN etc comments
+  'https://github.com/folke/todo-comments.nvim',
 
   -- Linting etc
   'https://github.com/stevearc/conform.nvim',
@@ -31,9 +32,9 @@ vim.pack.add {
   'https://github.com/mason-org/mason-lspconfig.nvim',
 
   -- Typing aids
-  'https://github.com/saghen/blink.cmp', -- Autocomplete
+  'https://github.com/saghen/blink.cmp',
   'https://github.com/windwp/nvim-autopairs',
-  'https://github.com/chrisgrieser/nvim-puppeteer', -- Auto f-strings when typing {}
+  'https://github.com/chrisgrieser/nvim-puppeteer',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/NMAC427/guess-indent.nvim',
 
