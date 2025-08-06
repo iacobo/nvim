@@ -18,8 +18,8 @@ vim.pack.add {
   'https://github.com/folke/which-key.nvim',
 
   -- Rendering
-  'https://github.com/OXY2DEV/markview.nvim', -- Must be loaded before treesitter
   'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/OXY2DEV/markview.nvim',
   'https://github.com/folke/todo-comments.nvim',
 
   -- Linting etc

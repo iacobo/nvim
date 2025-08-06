@@ -30,6 +30,9 @@ require('nvim-treesitter').setup {
   },
 }
 
+-- Markview
+require('markview').setup { preview = { icon_provider = 'devicons' } }
+
 -- Conform (Autoformat)
 require('conform').setup {
   event = { 'BufWritePre' },

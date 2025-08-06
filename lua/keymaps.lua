@@ -25,6 +25,9 @@ km('n', '<leader>n', Snacks.picker.notifications, { desc = 'Notification History
 km('n', '<leader>e', function()
   Snacks.explorer()
 end, { desc = 'File Explorer' })
+km('n', '\\', function()
+  Snacks.explorer()
+end, { desc = 'File Explorer' })
 
 -- find
 km('n', '<leader>fb', Snacks.picker.buffers, { desc = 'Buffers' })
