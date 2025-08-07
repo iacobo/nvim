@@ -20,5 +20,15 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 end)
+vim.o.shell = 'fish'
+
+-- Folding
+vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
+vim.o.foldcolumn = '0'
+vim.o.foldenable = true
+--vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldmethod = 'syntax'
 
 -- vim: ts=2 sts=2 sw=2 et

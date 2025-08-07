@@ -17,19 +17,21 @@ vim.pack.add {
   'https://github.com/folke/snacks.nvim',
   'https://github.com/folke/which-key.nvim',
 
-  -- Rendering
-  'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/OXY2DEV/markview.nvim',
-  'https://github.com/folke/todo-comments.nvim',
-
   -- Linting etc
-  'https://github.com/stevearc/conform.nvim',
   'https://github.com/mfussenegger/nvim-lint',
+  'https://github.com/mfussenegger/nvim-lint',
+  'https://github.com/stevearc/conform.nvim',
 
   -- Tool installers (must install after lint, in this order)
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/WhoIsSethDaniel/mason-tool-installer',
   'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+
+  -- Rendering
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/OXY2DEV/markview.nvim',
+  'https://github.com/folke/todo-comments.nvim',
 
   -- Typing aids
   'https://github.com/saghen/blink.cmp',

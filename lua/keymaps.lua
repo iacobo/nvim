@@ -10,8 +10,14 @@ km('n', '<F4>', ':BufferClose<CR>', { noremap = true, silent = true })
 km('n', '<Tab>', ':BufferNext<CR>', { noremap = true, silent = true })
 km('n', '<S-Tab>', ':BufferPrevious<CR>', { noremap = true, silent = true })
 
+-- Lint
+local lint = require 'lint'
+km('n', '<leader>ll', function()
+  lint.try_lint()
+end, { desc = 'Trigger linting for current file' })
+
 -- Conform (Autoformat)
-km('i', '<leader>f', function()
+km({ 'n', 'v' }, '<leader>F', function()
   require('conform').format { async = true, lsp_format = 'fallback' }
 end, { desc = '[F]ormat buffer' })
 
