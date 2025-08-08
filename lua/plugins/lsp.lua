@@ -16,7 +16,21 @@ lspconfig.pyright.setup {}
 -- [[Linter]]
 -----------------
 
-require('mason-tool-installer').setup { ensure_installed = { 'markdownlint', 'ruff', 'selene', 'stylua', 'uv' } }
+require('mason-tool-installer').setup {
+  ensure_installed = {
+    -- Linters
+    'markdownlint',
+    'ruff',
+    'selene',
+    -- Formatters
+    'prettierd',
+    'prettypst',
+    'stylua',
+    'taplo',
+    -- Misc
+    'uv',
+  },
+}
 
 local lint = require 'lint'
 

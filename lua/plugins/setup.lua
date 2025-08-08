@@ -38,8 +38,13 @@ require('conform').setup {
     lsp_format = 'fallback',
   },
   formatters_by_ft = {
+    html = { 'prettierd' },
     lua = { 'stylua' },
+    markdown = { 'markdownlint' },
     python = { 'ruff' },
+    toml = { 'taplo' },
+    typst = { 'prettypst' }, -- also: typstyle, prettypst
+    yaml = { 'prettierd' },
   },
 }
 
