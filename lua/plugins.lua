@@ -1,24 +1,25 @@
 -- [[ Install plugins ]]
-
 vim.pack.add {
   -- Dependencies
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/MunifTanjim/nui.nvim',
+  'https://github.com/echasnovski/mini.icons',
   'https://github.com/nvim-tree/nvim-web-devicons',
   'https://github.com/lewis6991/gitsigns.nvim',
-  'https://github.com/nvzone/volt', -- (for Typr)
+  'https://github.com/rcarriga/nvim-notify',
+  'https://github.com/nvzone/volt',
 
   -- UI
   'https://github.com/folke/tokyonight.nvim',
   'https://github.com/romgrk/barbar.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
+  'https://github.com/folke/noice.nvim',
 
   -- Finder, dir tree, grep etc
   'https://github.com/folke/snacks.nvim',
   'https://github.com/folke/which-key.nvim',
 
   -- Linting etc
-  'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/mfussenegger/nvim-lint',
   'https://github.com/stevearc/conform.nvim',
 

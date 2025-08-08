@@ -31,4 +31,9 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = 'syntax'
 
+-- Disabling :checkhealth lang warnings
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 -- vim: ts=2 sts=2 sw=2 et

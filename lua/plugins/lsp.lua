@@ -4,7 +4,12 @@
 
 -- Ensure you have the required language servers installed
 require('mason').setup()
-require('mason-lspconfig').setup { ensure_installed = { 'lua_ls', 'pyright' } }
+require('mason-lspconfig').setup {
+  ensure_installed = {
+    'lua_ls',
+    'pyright',
+  },
+}
 
 -- Start and connect to the LSP servers
 local lspconfig = require 'lspconfig'
@@ -28,6 +33,8 @@ require('mason-tool-installer').setup {
     'stylua',
     'taplo',
     -- Misc
+    --'mmdc',
+    'tectonic',
     'uv',
   },
 }
