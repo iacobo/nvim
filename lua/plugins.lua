@@ -14,6 +14,7 @@ vim.pack.add {
   'https://github.com/romgrk/barbar.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
   'https://github.com/folke/noice.nvim',
+  --'https://github.com/folke/persistence.nvim',
 
   -- Finder, dir tree, grep etc
   'https://github.com/folke/snacks.nvim',
