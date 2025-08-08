@@ -4,8 +4,14 @@
 vim.opt.background = 'dark'
 vim.cmd.colorscheme 'tokyonight-night'
 
+-- Snacks
+require('snacks').setup()
+
 -- Barbar
-require('barbar').setup { animation = false }
+require('barbar').setup {
+  animation = false,
+  auto_hide = 1,
+}
 
 -- Lualine
 require('lualine').setup {
