@@ -7,18 +7,47 @@ vim.cmd.colorscheme 'tokyonight-night'
 -- Snacks
 require('snacks').setup {
   bigfile = { enabled = true },
-  --dashboard = { enabled = true },
+  dashboard = {
+    enabled = true,
+    sections = {
+      { section = 'header' },
+      { section = 'keys', gap = 1, padding = 1 },
+      --{ section = 'startup' },
+      {
+        section = 'terminal',
+        cmd = 'chafa (random choice ~/Downloads/pics/lain/*) --format symbols --symbols vhalf',
+        --random = 10,
+        height = 20,
+        pane = 2,
+      },
+    },
+    preset = {
+      header = [[
+░▒▓███████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓██████████████▓▒░  
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓██████▓▒░   ░▒▓██▓▒░  ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ]],
+    },
+  },
   explorer = { enabled = true },
+  image = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },
-  picker = { enabled = true },
+  lazygit = { enabled = true },
   notifier = { enabled = true },
+  picker = { enabled = true },
   quickfile = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = true },
   statuscolumn = { enabled = true },
   words = { enabled = true },
 }
+
+-- Blink.cmp
+require('blink.cmp').setup()
 
 -- Noice
 require('noice').setup {

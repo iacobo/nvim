@@ -4,25 +4,11 @@
 
 -- Ensure you have the required language servers installed
 require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = {
-    'lua_ls',
-    'pyright',
-  },
-}
-
--- Start and connect to the LSP servers
-local lspconfig = require 'lspconfig'
-
-lspconfig.lua_ls.setup {}
-lspconfig.pyright.setup {}
-
------------------
--- [[Linter]]
------------------
-
 require('mason-tool-installer').setup {
   ensure_installed = {
+    -- LSPs
+    'lua-language-server',
+    'pyright',
     -- Linters
     'markdownlint',
     'ruff',
@@ -33,11 +19,22 @@ require('mason-tool-installer').setup {
     'stylua',
     'taplo',
     -- Misc
-    --'mmdc',
+    'mmdc',
     'tectonic',
     'uv',
   },
 }
+
+-- Start and connect to the LSP servers
+vim.lsp.enable 'lua_ls'
+vim.lsp.enable 'pyright'
+
+--vim.lsp.config 'lua_ls'
+--vim.lsp.config 'pyright'
+
+-----------------
+-- [[Linter]]
+-----------------
 
 local lint = require 'lint'
 
@@ -48,6 +45,7 @@ lint.linters_by_ft = {
 }
 
 local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
   group = lint_augroup,
   callback = function()

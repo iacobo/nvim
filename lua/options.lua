@@ -23,13 +23,13 @@ end)
 vim.o.shell = 'fish'
 
 -- Folding
-vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
-vim.o.foldcolumn = '0'
-vim.o.foldenable = true
+--vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
+--vim.o.foldcolumn = '0'
+--vim.o.foldenable = true
 --vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldmethod = 'syntax'
+--vim.o.foldlevel = 99
+--vim.o.foldlevelstart = 99
+--vim.o.foldmethod = 'syntax'
 
 -- Disabling :checkhealth lang warnings
 vim.g.loaded_node_provider = 0

@@ -8,6 +8,7 @@ vim.pack.add {
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/rcarriga/nvim-notify',
   'https://github.com/nvzone/volt',
+  'https://github.com/rafamadriz/friendly-snippets',
 
   -- UI
   'https://github.com/folke/tokyonight.nvim',
@@ -27,7 +28,8 @@ vim.pack.add {
   -- Tool installers (must install after lint, in this order)
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/WhoIsSethDaniel/mason-tool-installer',
-  'https://github.com/mason-org/mason-lspconfig.nvim',
+
+  -- Config files for LSPs
   'https://github.com/neovim/nvim-lspconfig',
 
   -- Rendering
@@ -36,7 +38,7 @@ vim.pack.add {
   'https://github.com/folke/todo-comments.nvim',
 
   -- Typing aids
-  'https://github.com/saghen/blink.cmp',
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' },
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/chrisgrieser/nvim-puppeteer',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
