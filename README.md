@@ -38,7 +38,6 @@ https://github.com/neovim/neovim/blob/master/INSTALL.md)) for native `vim.pack` 
 
 External Requirements:
 - A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
-  if you have it set `vim.g.have_nerd_font` in `init.lua` to true
 - A Terminal with the [Kitty](https://sw.kovidgoyal.net/kitty/) protocol (recommended for viewing image, pdf previews)
 
 ### Install config

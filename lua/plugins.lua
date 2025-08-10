@@ -38,7 +38,7 @@ vim.pack.add {
   'https://github.com/folke/todo-comments.nvim',
 
   -- Typing aids
-  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' },
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' }, -- Force it to dl prebuilt, stop errors building
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/chrisgrieser/nvim-puppeteer',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
