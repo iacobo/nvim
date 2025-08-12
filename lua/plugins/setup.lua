@@ -1,4 +1,9 @@
 -- [[ Configure plugins ]]
+
+-- Theme
+vim.opt.background = 'dark'
+vim.cmd.colorscheme 'tokyonight-night'
+
 local header = [[
 ░▒▓███████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓██████████████▓▒░ 
 ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
@@ -7,6 +12,7 @@ local header = [[
 ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
 ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░
 ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓██████▓▒░   ░▒▓██▓▒░  ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░]]
+
 local mode_map = {
   ['NORMAL'] = '',
   ['O-PENDING'] = '?',
@@ -26,10 +32,6 @@ local mode_map = {
   ['CONFIRM'] = 'Y?',
   ['MORE'] = 'M',
 }
-
--- Theme
-vim.opt.background = 'dark'
-vim.cmd.colorscheme 'tokyonight-night'
 
 -- Snacks
 require('snacks').setup {
@@ -76,12 +78,14 @@ require('noice').setup {
     },
   },
   -- you can enable a preset for easier configuration
-
+  -- TODO investigate vim.pack syntax/issue with nouce lib: these don't appear to be passed
+  --presets = {
   bottom_search = true, -- use a classic bottom cmdline for search
   command_palette = true, -- position the cmdline and popupmenu together
   long_message_to_split = true, -- long messages will be sent to a split
   inc_rename = false, -- enables an input dialog for inc-rename.nvim
   lsp_doc_border = false, -- add a border to hover docs and signature help
+  --},
 }
 
 -- Barbar
@@ -108,9 +112,7 @@ require('lualine').setup {
 }
 
 -- Treesitter
-require('nvim-treesitter').setup {
-  build = ':TSUpdate',
-}
+require('nvim-treesitter').setup { build = ':TSUpdate' }
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
@@ -163,7 +165,14 @@ require('conform').setup {
     html = { 'prettierd' },
     lua = { 'stylua' },
     markdown = { 'markdownlint' },
-    python = { 'ruff' },
+    python = {
+      -- To fix auto-fixable lint errors.
+      'ruff_fix',
+      -- To run the Ruff formatter.
+      'ruff_format',
+      -- To organize the imports.
+      'ruff_organize_imports',
+    },
     toml = { 'taplo' },
     typst = { 'prettypst' }, -- also: typstyle, prettypst
     yaml = { 'prettierd' },

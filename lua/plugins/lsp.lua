@@ -8,10 +8,9 @@ require('mason-tool-installer').setup {
   ensure_installed = {
     -- LSPs
     'lua-language-server',
-    'pyright',
+    'ruff',
     -- Linters
     'markdownlint',
-    'ruff',
     'selene',
     -- Formatters
     'prettierd',
@@ -27,10 +26,7 @@ require('mason-tool-installer').setup {
 
 -- Start and connect to the LSP servers
 vim.lsp.enable 'lua_ls'
-vim.lsp.enable 'pyright'
-
---vim.lsp.config 'lua_ls'
---vim.lsp.config 'pyright'
+vim.lsp.enable 'ruff'
 
 -----------------
 -- [[Linter]]
