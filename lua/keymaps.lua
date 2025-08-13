@@ -21,6 +21,9 @@ km({ 'n', 'v' }, '<leader>F', function()
   require('conform').format { async = true, lsp_format = 'fallback' }
 end, { desc = '[F]ormat buffer' })
 
+-- Hover diagnostic windows
+km('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true, desc = 'Hover Documentation' })
+
 -- [[ Snacks ]]
 -- Top Pickers & Explorer
 km('n', '<leader><space>', Snacks.picker.smart, { desc = 'Smart Find Files' })
@@ -116,7 +119,7 @@ km('n', '<leader>un', Snacks.notifier.hide, { desc = 'Dismiss All Notifications'
 km('n', '<c-/>', function()
   Snacks.terminal()
 end, { desc = 'Toggle Terminal' })
-km('n', '<c-_>', function()
+km('n', '<c-rue_>', function()
   Snacks.terminal()
 end, { desc = 'which_key_ignore' })
 km('n', ']]', function()
@@ -125,5 +128,35 @@ end, { desc = 'Next Reference' })
 km('n', '[[', function()
   Snacks.words.jump(-vim.v.count1)
 end, { desc = 'Prev Reference' })
+
+-- Neotest
+km('n', '<leader>t', '', { desc = '+test' })
+km('n', '<leader>tt', function()
+  require('neotest').run.run(vim.fn.expand '%')
+end, { desc = 'Run File (Neotest)' })
+km('n', '<leader>tT', function()
+  require('neotest').run.run(vim.uv.cwd())
+end, { desc = 'Run All Test Files (Neotest)' })
+km('n', '<leader>tr', function()
+  require('neotest').run.run()
+end, { desc = 'Run Nearest (Neotest)' })
+km('n', '<leader>tl', function()
+  require('neotest').run.run_last()
+end, { desc = 'Run Last (Neotest)' })
+km('n', '<leader>ts', function()
+  require('neotest').summary.toggle()
+end, { desc = 'Toggle Summary (Neotest)' })
+km('n', '<leader>to', function()
+  require('neotest').output.open { enter = true, auto_close = true }
+end, { desc = 'Show Output (Neotest)' })
+km('n', '<leader>tO', function()
+  require('neotest').output_panel.toggle()
+end, { desc = 'Toggle Output Panel (Neotest)' })
+km('n', '<leader>tS', function()
+  require('neotest').run.stop()
+end, { desc = 'Stop (Neotest)' })
+km('n', '<leader>tw', function()
+  require('neotest').watch.toggle(vim.fn.expand '%')
+end, { desc = 'Toggle Watch (Neotest)' })
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -2,19 +2,18 @@
 -- [[LSP]]
 -----------------
 
--- Ensure you have the required language servers installed
 require('mason').setup()
 require('mason-tool-installer').setup {
   ensure_installed = {
     -- LSPs
     'lua-language-server',
-    'ruff',
+    'basedpyright',
     -- Linters
     'markdownlint',
-    'selene',
     -- Formatters
     'prettierd',
     'prettypst',
+    'ruff',
     'stylua',
     'taplo',
     -- Misc
@@ -26,33 +25,44 @@ require('mason-tool-installer').setup {
 
 -- Start and connect to the LSP servers
 vim.lsp.enable 'lua_ls'
-vim.lsp.enable 'ruff'
+vim.lsp.enable 'basedpyright'
 
------------------
--- [[Linter]]
------------------
+-------------------
+-- [[ Autoformat ]]
+-------------------
 
-local lint = require 'lint'
-
-lint.linters_by_ft = {
-  markdown = { 'markdownlint' },
-  python = { 'ruff' },
-  lua = { 'selene' },
+-- Conform
+require('conform').setup {
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+  notify_on_error = false,
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = 'fallback',
+  },
+  formatters_by_ft = {
+    html = { 'prettierd' },
+    lua = { 'stylua' },
+    markdown = { 'markdownlint' },
+    python = {
+      'ruff_fix', -- To fix auto-fixable lint errors.
+      'ruff_format',
+      'ruff_organize_imports',
+    },
+    toml = { 'taplo' },
+    typst = { 'prettypst' }, -- also: typstyle, prettypst
+    yaml = { 'prettierd' },
+  },
 }
-
-local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-  group = lint_augroup,
-  callback = function()
-    if vim.bo.modifiable then
-      lint.try_lint()
-    end
-  end,
-})
 
 -----------------
 -- [[ Debugger ]]
 -----------------
+
+-----------------
+-- [[ Testing ]]
+-----------------
+
+require('neotest').setup { adapters = { require 'neotest-python' } }
 
 -- vim: ts=2 sts=2 sw=2 et

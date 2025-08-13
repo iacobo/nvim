@@ -9,6 +9,8 @@ vim.pack.add {
   'https://github.com/rcarriga/nvim-notify',
   'https://github.com/nvzone/volt',
   'https://github.com/rafamadriz/friendly-snippets',
+  'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/antoinemadec/FixCursorHold.nvim',
 
   -- UI
   'https://github.com/folke/tokyonight.nvim',
@@ -32,8 +34,13 @@ vim.pack.add {
   -- Config files for LSPs
   'https://github.com/neovim/nvim-lspconfig',
 
+  -- Testing
+  'https://github.com/nvim-neotest/neotest',
+  'https://github.com/nvim-neotest/neotest-python',
+
   -- Rendering
   'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/nvim-treesitter/nvim-treesitter-context', -- Sticky headers
   'https://github.com/OXY2DEV/markview.nvim',
   'https://github.com/folke/todo-comments.nvim',
 

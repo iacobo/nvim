@@ -67,6 +67,12 @@ require('snacks').setup {
 -- Blink.cmp
 require('blink.cmp').setup()
 
+-- Barbar
+require('barbar').setup { animation = false, auto_hide = 1 }
+
+-- Markview
+require('markview').setup { preview = { icon_provider = 'devicons' } }
+
 -- Noice
 require('noice').setup {
   lsp = {
@@ -86,12 +92,6 @@ require('noice').setup {
   inc_rename = false, -- enables an input dialog for inc-rename.nvim
   lsp_doc_border = false, -- add a border to hover docs and signature help
   --},
-}
-
--- Barbar
-require('barbar').setup {
-  animation = false,
-  auto_hide = 1,
 }
 
 -- Lualine
@@ -147,36 +147,6 @@ require('nvim-treesitter.configs').setup {
   auto_install = true,
   highlight = { enable = true },
   indent = { enable = true },
-}
-
--- Markview
-require('markview').setup { preview = { icon_provider = 'devicons' } }
-
--- Conform (Autoformat)
-require('conform').setup {
-  event = { 'BufWritePre' },
-  cmd = { 'ConformInfo' },
-  notify_on_error = false,
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = 'fallback',
-  },
-  formatters_by_ft = {
-    html = { 'prettierd' },
-    lua = { 'stylua' },
-    markdown = { 'markdownlint' },
-    python = {
-      -- To fix auto-fixable lint errors.
-      'ruff_fix',
-      -- To run the Ruff formatter.
-      'ruff_format',
-      -- To organize the imports.
-      'ruff_organize_imports',
-    },
-    toml = { 'taplo' },
-    typst = { 'prettypst' }, -- also: typstyle, prettypst
-    yaml = { 'prettierd' },
-  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et
