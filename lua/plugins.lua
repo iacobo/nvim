@@ -11,12 +11,20 @@ vim.pack.add {
   'https://github.com/rafamadriz/friendly-snippets',
   'https://github.com/nvim-neotest/nvim-nio',
   'https://github.com/antoinemadec/FixCursorHold.nvim',
+  --'https:github.com/SmiteshP/nvim-navic',
+
+  -- Rendering
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/nvim-treesitter/nvim-treesitter-context', -- Sticky headers
+  'https://github.com/OXY2DEV/markview.nvim',
+  'https://github.com/folke/todo-comments.nvim',
 
   -- UI
   'https://github.com/folke/tokyonight.nvim',
   'https://github.com/romgrk/barbar.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
   'https://github.com/folke/noice.nvim',
+  --'https://github.com/utilyre/barbecue.nvim',
   --'https://github.com/folke/persistence.nvim',
 
   -- Finder, dir tree, grep etc
@@ -24,25 +32,21 @@ vim.pack.add {
   'https://github.com/folke/which-key.nvim',
 
   -- Linting etc
-  'https://github.com/mfussenegger/nvim-lint',
+  'https://github.com/mfussenegger/nvim-lint', -- Like treesitter, necessary as a dep?
   'https://github.com/stevearc/conform.nvim',
 
-  -- Tool installers (must install after lint, in this order)
+  -- Tool installers
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/WhoIsSethDaniel/mason-tool-installer',
 
   -- Config files for LSPs
   'https://github.com/neovim/nvim-lspconfig',
 
-  -- Testing
+  -- Testing, debugging
   'https://github.com/nvim-neotest/neotest',
   'https://github.com/nvim-neotest/neotest-python',
-
-  -- Rendering
-  'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/nvim-treesitter/nvim-treesitter-context', -- Sticky headers
-  'https://github.com/OXY2DEV/markview.nvim',
-  'https://github.com/folke/todo-comments.nvim',
+  'https://github.com/mfussenegger/nvim-dap',
+  'https://github.com/mfussenegger/nvim-dap-python',
 
   -- Typing aids
   { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' }, -- Force it to dl prebuilt, stop errors building
@@ -55,7 +59,7 @@ vim.pack.add {
   'https://github.com/nvzone/typr', -- Typing test
 }
 
--- Setups
+-- [[ Setups ]]
 require 'plugins.setup'
 require 'plugins.lsp'
 

@@ -59,10 +59,18 @@ require('conform').setup {
 -- [[ Debugger ]]
 -----------------
 
+require('dap-python').setup 'uv'
+
 -----------------
 -- [[ Testing ]]
 -----------------
 
-require('neotest').setup { adapters = { require 'neotest-python' } }
+require('neotest').setup {
+  adapters = {
+    require 'neotest-python' {
+      runner = 'unittest',
+    },
+  },
+}
 
 -- vim: ts=2 sts=2 sw=2 et

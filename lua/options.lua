@@ -20,7 +20,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 end)
-vim.o.shell = 'fish'
+vim.o.shell = 'fish' -- <O)))><3
 
 -- Folding
 

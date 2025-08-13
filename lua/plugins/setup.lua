@@ -68,7 +68,14 @@ require('snacks').setup {
 require('blink.cmp').setup()
 
 -- Barbar
-require('barbar').setup { animation = false, auto_hide = 1 }
+require('barbar').setup {
+  animation = false,
+  auto_hide = 1,
+  -- Not perfect, see here: https://github.com/folke/snacks.nvim/issues/2097
+  sidebar_filetypes = {
+    ['snacks_layout_box'] = { event = 'BufWipeout' },
+  },
+}
 
 -- Markview
 require('markview').setup { preview = { icon_provider = 'devicons' } }
