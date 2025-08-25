@@ -6,25 +6,23 @@ Personal, minimal Neovim setup:
 
 |   |   |
 |---|---|
-| UI | [Tokyonight](https://github.com/folke/tokyonight.nvim) <br> [Barbar](https://github.com/romgrk/barbar.nvim) <br> [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+UI | [Tokyonight](https://github.com/folke/tokyonight.nvim) <br> [Barbar](https://github.com/romgrk/barbar.nvim) <br> [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 Finder | [Snacks](https://github.com/folke/snacks.nvim)
 Hints | [Which-key](https://github.com/folke/which-key.nvim)
 Rendering | [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) <br> [Markview](https://github.com/OXY2DEV/markview.nvim)<br> [TODO-comments](https://github.com/folke/todo-comments.nvim)
-Linting etc | [Conform](https://github.com/stevearc/conform.nvim) <br>[Nvim-lint](https://github.com/mfussenegger/nvim-lint)
-Tool installers | [Mason](https://github.com/mason-org/mason.nvim) <br>[Mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer) <br>[Mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)
+Linting etc | [Conform](https://github.com/stevearc/conform.nvim)
+Tool installers | [Mason](https://github.com/mason-org/mason.nvim) <br>[Mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer)
 Typing aids | [Blink](https://github.com/saghen/blink.cmp) <br>[Nvim-autopairs](https://github.com/windwp/nvim-autopairs) <br>[Nvim-puppeteer](https://github.com/chrisgrieser/nvim-puppeteer) <br>[Indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) <br>[Guess-indent](https://github.com/NMAC427/guess-indent.nvim)
 Fun | [Typr](https://github.com/nvzone/typr)
 
 ## Overview
 
-- `init.lua` 
-  - sets leader key and nerdfont availability
-  - calls `lua/options.lua` (sets other options)
-  - calls `lua/plugins.lua`
-    - installs plugins 
-    - calls `lua/plugins/setup.lua` (plugins w/ custom configs)
-    - calls `lua/plugins/lsp.lua` (LSP, lint, debug for `.py`, `.lua`)
-  - calls `lua/keymaps.lua`
+- `plugin/`
+  - `++options.lua` sets leader, other basic options
+  - `++plugins.lua` installs plugins 
+  - `+config.lua` plugins w/ custom configs
+  - `+lsp.lua` installs language tools, enables and starts LSP
+  - `keymaps.lua` sets keymaps
 
 
 ## Installation

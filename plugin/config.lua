@@ -1,5 +1,3 @@
--- [[ Configure plugins ]]
-
 -- Theme
 vim.opt.background = 'dark'
 vim.cmd.colorscheme 'tokyonight-night'
@@ -42,13 +40,11 @@ require('snacks').setup {
       { section = 'header' },
       {
         section = 'terminal',
-        cmd = 'chafa (random choice ~/Downloads/pics/lain/*) --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1',
+        cmd = 'chafa (random choice ~/Downloads/pics/lain/*) --format symbols --symbols vhalf --size 60x17 --stretch',
         height = 23,
       },
     },
-    preset = {
-      header = header,
-    },
+    preset = { header = header },
   },
   explorer = { enabled = true },
   image = { enabled = true },
@@ -68,7 +64,6 @@ require('snacks').setup {
 require('blink.cmp').setup {
   keymap = {
     preset = 'enter',
-    -- TODO: add to keymaps
     ['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
     ['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
   },
@@ -86,7 +81,7 @@ require('blink.cmp').setup {
 require('barbar').setup {
   animation = false,
   auto_hide = 1,
-  -- Not perfect, see here: https://github.com/folke/snacks.nvim/issues/2097
+  -- NOTE: Not perfect, see here: https://github.com/folke/snacks.nvim/issues/2097
   sidebar_filetypes = {
     ['snacks_layout_box'] = { event = 'BufWipeout' },
   },
@@ -120,9 +115,7 @@ require('lualine').setup {
   sections = {
     lualine_a = { {
       'mode',
-      fmt = function(s)
-        return mode_map[s] or s
-      end,
+      fmt = function(s) return mode_map[s] or s end,
     } },
     lualine_x = { 'encoding', { 'fileformat', symbols = { unix = '' } }, 'filetype' },
   }, --e8cc
@@ -134,36 +127,27 @@ require('lualine').setup {
 
 -- Treesitter
 require('nvim-treesitter').setup { build = ':TSUpdate' }
-
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'bash',
     'c',
     'css',
     'diff',
-    'fish',
     'html',
-    'javascript',
     'latex',
     'lua',
     'luadoc',
     'markdown',
     'markdown_inline',
-    'norg',
     'python',
     'query',
     'regex',
     'rst',
-    'scss',
-    'svelte',
     'toml',
-    'tsx',
     'typst',
     'vim',
     'vimdoc',
-    'vue',
     'yaml',
-    --'zsh',
   },
   auto_install = true,
   highlight = { enable = true },

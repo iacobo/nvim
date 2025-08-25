@@ -1,16 +1,12 @@
------------------
 -- [[LSP]]
------------------
-
 require('mason').setup()
 require('mason-tool-installer').setup {
   ensure_installed = {
     -- LSPs
     'lua-language-server',
     'basedpyright',
-    -- Linters
-    'markdownlint',
     -- Formatters
+    'markdownlint',
     'prettierd',
     'prettypst',
     'ruff',
@@ -22,56 +18,30 @@ require('mason-tool-installer').setup {
     -- Venv
     'uv',
   },
+  auto_update = true,
 }
 
--- Start and connect to the LSP servers
-vim.lsp.enable 'lua_ls'
-vim.lsp.enable 'basedpyright'
+vim.lsp.enable { 'lua_ls', 'basedpyright' }
 
--------------------
 -- [[ Autoformat ]]
--------------------
-
 require('conform').setup {
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
   notify_on_error = false,
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = 'fallback',
-  },
+  format_on_save = { timeout_ms = 500, lsp_format = 'fallback' },
   formatters_by_ft = {
     html = { 'prettierd' },
     lua = { 'stylua' },
     markdown = { 'markdownlint' },
-    python = {
-      'ruff_fix', -- To fix auto-fixable lint errors.
-      'ruff_format',
-      'ruff_organize_imports',
-    },
+    python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
     toml = { 'taplo' },
     typst = { 'prettypst' }, -- also: typstyle, prettypst
     yaml = { 'prettierd' },
   },
 }
 
------------------
--- [[ Debugger ]]
------------------
-
+-- [[ Debug, Test ]]
 require('dap-python').setup 'uv'
-
------------------
--- [[ Testing ]]
------------------
-
--- https://github.com/nvim-neotest/neotest-python/issues/69
-require('neotest').setup {
-  adapters = {
-    require 'neotest-python' {
-      runner = 'unittest',
-    },
-  },
-}
+require('neotest').setup { adapters = { require 'neotest-python' } } -- https://github.com/nvim-neotest/neotest-python/issues/69
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,31 +1,20 @@
 local km = vim.keymap.set
 
+-- [[ Leader ]]
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- [[ Basic Keymaps ]]
 km('n', '<Esc>', '<cmd>nohlsearch<CR>')
 km('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 km('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+km('n', '<leader>pu', vim.pack.update, { noremap = true, silent = true, desc = 'Update plugins' })
+km('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true, desc = 'Hover Documentation' })
 
--- Keybindings for Barbar.nvim
+-- [[ Barbar ]]
 km('n', '<F4>', ':BufferClose<CR>', { noremap = true, silent = true })
 km('n', '<Tab>', ':BufferNext<CR>', { noremap = true, silent = true })
 km('n', '<S-Tab>', ':BufferPrevious<CR>', { noremap = true, silent = true })
-
--- Lint
-local lint = require 'lint'
-km('n', '<leader>ll', function()
-  lint.try_lint()
-end, { desc = 'Trigger linting for current file' })
-
--- Conform (Autoformat)
-km({ 'n', 'v' }, '<leader>F', function()
-  require('conform').format { async = true, lsp_format = 'fallback' }
-end, { desc = '[F]ormat buffer' })
-
--- Hover diagnostic windows
-km('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true, desc = 'Hover Documentation' })
-
--- Update packages
-km('n', '<leader>pu', vim.pack.update, { noremap = true, silent = true, desc = 'Update plugins' })
 
 -- [[ Snacks ]]
 -- Top Pickers & Explorer
@@ -34,15 +23,11 @@ km('n', '<leader>,', Snacks.picker.buffers, { desc = 'Buffers' })
 km('n', '<leader>/', Snacks.picker.grep, { desc = 'Grep' })
 km('n', '<leader>:', Snacks.picker.command_history, { desc = 'Command History' })
 km('n', '<leader>n', Snacks.picker.notifications, { desc = 'Notification History' })
-km('n', '\\', function()
-  Snacks.explorer()
-end, { desc = 'File Explorer' })
+km('n', '\\', function() Snacks.explorer() end, { desc = 'File Explorer' })
 
 -- find
 km('n', '<leader>fb', Snacks.picker.buffers, { desc = 'Buffers' })
-km('n', '<leader>fc', function()
-  Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
-end, { desc = 'Find Config File' })
+km('n', '<leader>fc', function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = 'Find Config File' })
 km('n', '<leader>ff', Snacks.picker.files, { desc = 'Find Files' })
 km('n', '<leader>fg', Snacks.picker.git_files, { desc = 'Find Git Files' })
 km('n', '<leader>fp', Snacks.picker.projects, { desc = 'Projects' })
@@ -96,67 +81,31 @@ km('n', '<leader>ss', Snacks.picker.lsp_symbols, { desc = 'LSP Symbols' })
 km('n', '<leader>sS', Snacks.picker.lsp_workspace_symbols, { desc = 'LSP Workspace Symbols' })
 
 -- Other
-km('n', '<leader>z', function()
-  Snacks.zen()
-end, { desc = 'Toggle Zen Mode' })
+km('n', '<leader>z', function() Snacks.zen() end, { desc = 'Toggle Zen Mode' })
 km('n', '<leader>Z', Snacks.zen.zoom, { desc = 'Toggle Zoom' })
-km('n', '<leader>.', function()
-  Snacks.scratch()
-end, { desc = 'Toggle Scratch Buffer' })
+km('n', '<leader>.', function() Snacks.scratch() end, { desc = 'Toggle Scratch Buffer' })
 km('n', '<leader>S', Snacks.scratch.select, { desc = 'Select Scratch Buffer' })
 km('n', '<leader>n', Snacks.notifier.show_history, { desc = 'Notification History' })
-km('n', '<leader>bd', function()
-  Snacks.bufdelete()
-end, { desc = 'Delete Buffer' })
+km('n', '<leader>bd', function() Snacks.bufdelete() end, { desc = 'Delete Buffer' })
 km('n', '<leader>cR', Snacks.rename.rename_file, { desc = 'Rename File' })
-km('n', '<leader>gB', function()
-  Snacks.gitbrowse()
-end, { desc = 'Git Browse' })
-km('n', '<leader>gg', function()
-  Snacks.lazygit()
-end, { desc = 'Lazygit' })
+km('n', '<leader>gB', function() Snacks.gitbrowse() end, { desc = 'Git Browse' })
+km('n', '<leader>gg', function() Snacks.lazygit() end, { desc = 'Lazygit' })
 km('n', '<leader>un', Snacks.notifier.hide, { desc = 'Dismiss All Notifications' })
-km('n', '<c-/>', function()
-  Snacks.terminal()
-end, { desc = 'Toggle Terminal' })
-km('n', '<c-rue_>', function()
-  Snacks.terminal()
-end, { desc = 'which_key_ignore' })
-km('n', ']]', function()
-  Snacks.words.jump(vim.v.count1)
-end, { desc = 'Next Reference' })
-km('n', '[[', function()
-  Snacks.words.jump(-vim.v.count1)
-end, { desc = 'Prev Reference' })
+km('n', '<c-/>', function() Snacks.terminal() end, { desc = 'Toggle Terminal' })
+km('n', '<c-rue_>', function() Snacks.terminal() end, { desc = 'which_key_ignore' })
+km('n', ']]', function() Snacks.words.jump(vim.v.count1) end, { desc = 'Next Reference' })
+km('n', '[[', function() Snacks.words.jump(-vim.v.count1) end, { desc = 'Prev Reference' })
 
--- Neotest
+-- [[ Neotest ]]
 km('n', '<leader>t', '', { desc = '+test' })
-km('n', '<leader>tt', function()
-  require('neotest').run.run(vim.fn.expand '%')
-end, { desc = 'Run File (Neotest)' })
-km('n', '<leader>tT', function()
-  require('neotest').run.run(vim.uv.cwd())
-end, { desc = 'Run All Test Files (Neotest)' })
-km('n', '<leader>tr', function()
-  require('neotest').run.run()
-end, { desc = 'Run Nearest (Neotest)' })
-km('n', '<leader>tl', function()
-  require('neotest').run.run_last()
-end, { desc = 'Run Last (Neotest)' })
-km('n', '<leader>ts', function()
-  require('neotest').summary.toggle()
-end, { desc = 'Toggle Summary (Neotest)' })
-km('n', '<leader>to', function()
-  require('neotest').output.open { enter = true, auto_close = true }
-end, { desc = 'Show Output (Neotest)' })
-km('n', '<leader>tO', function()
-  require('neotest').output_panel.toggle()
-end, { desc = 'Toggle Output Panel (Neotest)' })
-km('n', '<leader>tS', function()
-  require('neotest').run.stop()
-end, { desc = 'Stop (Neotest)' })
-km('n', '<leader>tw', function()
-  require('neotest').watch.toggle(vim.fn.expand '%')
-end, { desc = 'Toggle Watch (Neotest)' })
+km('n', '<leader>tt', function() require('neotest').run.run(vim.fn.expand '%') end, { desc = 'Run File (Neotest)' })
+km('n', '<leader>tT', function() require('neotest').run.run(vim.uv.cwd()) end, { desc = 'Run All Test Files (Neotest)' })
+km('n', '<leader>tr', function() require('neotest').run.run() end, { desc = 'Run Nearest (Neotest)' })
+km('n', '<leader>tl', function() require('neotest').run.run_last() end, { desc = 'Run Last (Neotest)' })
+km('n', '<leader>ts', function() require('neotest').summary.toggle() end, { desc = 'Toggle Summary (Neotest)' })
+km('n', '<leader>to', function() require('neotest').output.open { enter = true, auto_close = true } end, { desc = 'Show Output (Neotest)' })
+km('n', '<leader>tO', function() require('neotest').output_panel.toggle() end, { desc = 'Toggle Output Panel (Neotest)' })
+km('n', '<leader>tS', function() require('neotest').run.stop() end, { desc = 'Stop (Neotest)' })
+km('n', '<leader>tw', function() require('neotest').watch.toggle(vim.fn.expand '%') end, { desc = 'Toggle Watch (Neotest)' })
 
 -- vim: ts=2 sts=2 sw=2 et
