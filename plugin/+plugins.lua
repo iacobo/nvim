@@ -36,7 +36,7 @@ vim.pack.add({
   'https://github.com/mfussenegger/nvim-dap-python',
 
   -- Typing aids
-  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' }, -- Force it to dl prebuilt, stop errors building
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '*' }, -- Force it to dl prebuilt, stop errors building
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/windwp/nvim-autopairs',
   'https://github.com/chrisgrieser/nvim-puppeteer',

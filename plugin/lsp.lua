@@ -6,9 +6,7 @@ require('mason-tool-installer').setup {
     'lua-language-server',
     'basedpyright',
     -- Formatters
-    'markdownlint',
     'prettierd',
-    'prettypst',
     'ruff',
     'stylua',
     'taplo',
@@ -32,10 +30,9 @@ require('conform').setup {
   formatters_by_ft = {
     html = { 'prettierd' },
     lua = { 'stylua' },
-    markdown = { 'markdownlint' },
+    markdown = { 'prettierd' },
     python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
     toml = { 'taplo' },
-    typst = { 'prettypst' }, -- also: typstyle, prettypst
     yaml = { 'prettierd' },
   },
 }

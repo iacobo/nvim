@@ -87,6 +87,9 @@ require('barbar').setup {
   },
 }
 
+-- TODO comments
+require('todo-comments').setup()
+
 -- Markview
 require('markview').setup { preview = { icon_provider = 'devicons' } }
 
