@@ -16,9 +16,10 @@ require('mason-tool-installer').setup {
     'ruff',
     'stylua',
     'taplo',
-    -- Misc
+    -- Renderers
     'mmdc',
     'tectonic',
+    -- Venv
     'uv',
   },
 }
@@ -31,7 +32,6 @@ vim.lsp.enable 'basedpyright'
 -- [[ Autoformat ]]
 -------------------
 
--- Conform
 require('conform').setup {
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
@@ -65,6 +65,7 @@ require('dap-python').setup 'uv'
 -- [[ Testing ]]
 -----------------
 
+-- https://github.com/nvim-neotest/neotest-python/issues/69
 require('neotest').setup {
   adapters = {
     require 'neotest-python' {

@@ -55,12 +55,11 @@ vim.pack.add {
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/NMAC427/guess-indent.nvim',
 
+  -- Git
+  'https://github.com/sindrets/diffview.nvim',
+
   -- Fun
   'https://github.com/nvzone/typr', -- Typing test
 }
-
--- [[ Setups ]]
-require 'plugins.setup'
-require 'plugins.lsp'
 
 -- vim: ts=2 sts=2 sw=2 et

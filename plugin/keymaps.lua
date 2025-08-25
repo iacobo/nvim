@@ -24,6 +24,9 @@ end, { desc = '[F]ormat buffer' })
 -- Hover diagnostic windows
 km('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true, desc = 'Hover Documentation' })
 
+-- Update packages
+km('n', '<leader>pu', vim.pack.update, { noremap = true, silent = true, desc = 'Update plugins' })
+
 -- [[ Snacks ]]
 -- Top Pickers & Explorer
 km('n', '<leader><space>', Snacks.picker.smart, { desc = 'Smart Find Files' })

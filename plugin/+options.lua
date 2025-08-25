@@ -1,9 +1,14 @@
 -- [[ Setting options ]]
 
-vim.o.number = true -- Line numbers
+-- Leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Misc
+vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.showmode = false -- Redundant,already in status line
+vim.o.showmode = false -- Redundant, already in status line
 vim.o.breakindent = true
 vim.o.undofile = true -- Save undo history
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term

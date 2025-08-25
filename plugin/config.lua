@@ -15,19 +15,19 @@ local header = [[
 
 local mode_map = {
   ['NORMAL'] = '',
-  ['O-PENDING'] = '?',
+  ['O-PENDING'] = '',
   ['INSERT'] = '󰗧',
   ['VISUAL'] = '󰈈',
-  ['V-BLOCK'] = '󰈈B',
-  ['V-LINE'] = '󰈈L',
-  ['V-REPLACE'] = '󰈈R',
+  ['V-BLOCK'] = '󰈈󰦪',
+  ['V-LINE'] = '󰈈',
+  ['V-REPLACE'] = '󰈈',
   ['REPLACE'] = '',
   ['COMMAND'] = '',
   ['SHELL'] = '',
   ['TERMINAL'] = '',
-  ['EX'] = 'X',
-  ['S-BLOCK'] = 'SB',
-  ['S-LINE'] = 'SL',
+  ['EX'] = '',
+  ['S-BLOCK'] = 'S󰦪',
+  ['S-LINE'] = 'S',
   ['SELECT'] = '󰒅',
   ['CONFIRM'] = 'Y?',
   ['MORE'] = 'M',
@@ -42,7 +42,7 @@ require('snacks').setup {
       { section = 'header' },
       {
         section = 'terminal',
-        cmd = 'chafa (random choice ~/Downloads/pics/lain/*) --format symbols --symbols vhalf',
+        cmd = 'chafa (random choice ~/Downloads/pics/lain/*) --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1',
         height = 23,
       },
     },
@@ -65,7 +65,22 @@ require('snacks').setup {
 }
 
 -- Blink.cmp
-require('blink.cmp').setup()
+require('blink.cmp').setup {
+  keymap = {
+    preset = 'enter',
+    -- TODO: add to keymaps
+    ['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
+  },
+  completion = {
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = true,
+      },
+    },
+  },
+}
 
 -- Barbar
 require('barbar').setup {
@@ -90,8 +105,7 @@ require('noice').setup {
       ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
     },
   },
-  -- you can enable a preset for easier configuration
-  -- TODO investigate vim.pack syntax/issue with nouce lib: these don't appear to be passed
+  -- TODO: investigate vim.pack syntax/issue with noice lib: these don't appear to be passed
   --presets = {
   bottom_search = true, -- use a classic bottom cmdline for search
   command_palette = true, -- position the cmdline and popupmenu together
